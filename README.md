@@ -5,7 +5,7 @@ This application uses electron js to display the ping, the values for the parsed
 You can use electron packager to make a exe file to your likings like 32bit/64bit versions. The code is npm start win in my case.
 
 
-#Usage
+# Usage
 
 npm install
 
