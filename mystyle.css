@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-user-select: none;
+    -webkit-app-region: no-drag;
+}
+
+div {
+    border-radius: 20%;
+    font-size: 2rem;
+    display: inline-block;
+    color: white;
+    cursor: pointer;
+    -webkit-app-region: drag;
+    user-select: none;
+    font-family: sans-serif;
+    background-color: rgba(14, 14, 14, 0.2);
+    color: rgba(255,255,255, 0.5c);
+}
+#value{
+    padding: 0.2rem;
+    
+}
+#div:hover {
+    cursor: grab;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}

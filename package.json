@@ -1,0 +1,21 @@
+{
+  "name": "elec",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "nodemon --watch * --exec electron .",
+    "win": "electron-packager . electron-tutorial-app --overwrite --platform=win32 --arch=x64 --icon=ping.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Ping\"" 
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^10.1.5",
+    "electron-packager": "^15.1.0",
+    "nodemon": "^2.0.6"
+  },
+  "dependencies": {
+    "child_process": "^1.0.2"
+  }
+}
