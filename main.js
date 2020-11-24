@@ -1,16 +1,11 @@
-const {
-  app,
-  BrowserWindow,
-  ipcMain
-} = require('electron');
-const {
-  exec
-} = require('child_process');
-const ipc = require('electron').ipcMain;
+const {app, BrowserWindow, ipcMain} = require('electron');
+const ipc = ipcMain;
+const {exec} = require('child_process');
 
 let win;
+let result = '';
 
-
+setInterval(spawn, 250);
 
 function createWindow() {
   win = new BrowserWindow({
@@ -23,6 +18,7 @@ function createWindow() {
       nodeIntegration: true
     }
   })
+  
   console.log(win.getBounds());
   win.setIgnoreMouseEvents(false);
   win.removeMenu();
@@ -30,13 +26,12 @@ function createWindow() {
   win.setAlwaysOnTop(true, 'screen');
   win.loadFile('index.html');
   // win.setIgnoreMouseEvents(true, { forward: true });
-
   // win.webContents.openDevTools();
-
 }
 
-app.whenReady().then(
-  createWindow
+app.whenReady().then(() => {
+    createWindow();
+  }
 )
 
 app.on('window-all-closed', () => {
@@ -84,16 +79,17 @@ function spawn() {
   });
 }
 
-
-let result = '';
-setInterval(spawn, 250);
-
-
-
+let oldX = 0;
+let oldY = 0;
 ipc.on('resize', (event, x, y) => {
-  win.setResizable(true);
-  win.setBounds(width = x, height = y);
-  win.setSize(x, y);
-  // console.log(x,y);
-  win.setResizable(false);
+  if (oldX != x || oldY != y ){
+    win.setResizable(true);
+    win.setBounds(width = x, height = y);
+    win.setSize(x, y);
+    // console.log(x,y);
+    win.setResizable(false);
+  }
+  oldX = x;
+  oldY = y;
+
 })

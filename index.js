@@ -13,9 +13,10 @@ ipc.on('update-notify-value', function (event, arg) {
         // console.log(arg);
         document.getElementById('value').innerHTML = targetPingVal.toLocaleString('de');
     }
-    ipc.send('resize', document.getElementById('size').clientWidth, document.getElementById('size').clientHeight);
-    console.log(document.getElementById('size').clientWidth, document.getElementById('size').clientHeight);
-                
+    wdth = document.getElementById('size').clientWidth;
+    hght = document.getElementById('size').clientHeight;
+    ipc.send('resize',wdth , hght);
+    // console.log(wdth, hght);          
 })  
 
 
