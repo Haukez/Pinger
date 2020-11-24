@@ -7,10 +7,10 @@ You can use electron packager to make a exe file to your likings like 32bit/64bi
 
 # Usage
 
-npm install
+**npm install**
 
-npm start
+**npm start**
 
 to package to a exe file use 
 
-npm run win
+**npm run win**
